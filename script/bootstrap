@@ -140,11 +140,10 @@ install_dotfiles () {
 install_zsh () {
   # Test to see if zshell is installed.  If it is:
   if [ -f /bin/zsh -o -f /usr/bin/zsh ]; then
-    # Install Oh My Zsh if it isn't already present
-    if [[ ! -d $dir/oh-my-zsh/ ]]; then
+    # Install Prezto if it isn't already present
+    if [[ ! -d $HOME/.zprezto/ ]]; then
       git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
       chsh -s /bin/zsh
-      prompt -s paradox
     fi
     # Set the default shell to zsh if it isn't currently set to zsh
     if [[ ! $(echo $SHELL) == $(which zsh) ]]; then
