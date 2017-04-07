@@ -1,4 +1,7 @@
 "*":
+  "atom-beautify":
+    general:
+      _analyticsUserId: "a201ce1b-5e83-44c3-b730-487ac31fa5e4"
   core:
     disabledPackages: [
       "background-tips"
@@ -22,7 +25,7 @@
     ]
   editor:
     fontFamily: "Menlo"
-    fontSize: 15
+    fontSize: 12
     invisibles: {}
     showIndentGuide: true
     softWrapAtPreferredLineLength: true

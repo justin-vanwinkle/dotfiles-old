@@ -15,7 +15,8 @@ call vundle#begin()
 " Plugins
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdtree'                " File tree
+Plugin 'scrooloose/nerdcommenter'           " Comments
 Plugin 'pangloss/vim-javascript'
 Plugin 'fatih/vim-go'
 Plugin 'vimwiki/vimwiki'
@@ -25,8 +26,8 @@ Plugin 'severin-lemaignan/vim-minimap'      " Minimap
 Plugin 'syngan/vim-vimlint'                 " Vim linter
 Plugin 'majutsushi/tagbar'                  " Sidebar for code
 Plugin 'PurpleGuitar/vim-croz-colorscheme'  " Craig's color scheme
-Plugin 'shougo/neocomplete.vim'              " Autocomplete
-
+Plugin 'shougo/neocomplete.vim'             " Autocomplete
+Plugin 'leafgarland/typescript-vim'         " Typescript Syntax
 call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
