@@ -46,3 +46,6 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 
+
+# added by travis gem
+[ -f /Users/vanwinklej/.travis/travis.sh ] && source /Users/vanwinklej/.travis/travis.sh

@@ -32,7 +32,7 @@
   "go-plus":
     panelDisplayMode: "closed"
   "linter-eslint":
-    useGlobalEslint: true
+    disableWhenNoEslintConfig: false
   "release-notes":
     viewedVersion: "0.89.0"
   "spell-check":
