@@ -17,17 +17,27 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'                " File tree
 Plugin 'scrooloose/nerdcommenter'           " Comments
-Plugin 'pangloss/vim-javascript'
 Plugin 'fatih/vim-go'
 Plugin 'vimwiki/vimwiki'
 Plugin 'vim-pandoc/vim-pandoc'
-Plugin 'vim-pandoc/vim-pandoc-syntax'       
+Plugin 'sheerun/vim-polyglot'               " Language pack
+Plugin 'vim-pandoc/vim-pandoc-syntax'       " Pandoc markdown
+Plugin 'ntpeters/vim-better-whitespace'     " Whitespace highlighter
+Plugin 'ctrlpvim/ctrlp.vim'                 " Find files
+Plugin 'vim-syntastic/syntastic'            " Error Checking
 Plugin 'severin-lemaignan/vim-minimap'      " Minimap
 Plugin 'syngan/vim-vimlint'                 " Vim linter
-Plugin 'majutsushi/tagbar'                  " Sidebar for code
-Plugin 'PurpleGuitar/vim-croz-colorscheme'  " Craig's color scheme
+Plugin 'xolox/vim-misc'                     " Lib for xolox plugins
+Plugin 'xolox/vim-easytags'                 " Auto ctag generation
+Plugin 'majutsushi/tagbar'                  " Tag browser
+Plugin 'PurpleGuitar/vim-croz-colorscheme'  " Craig's sexy color scheme
 Plugin 'shougo/neocomplete.vim'             " Autocomplete
-Plugin 'leafgarland/typescript-vim'         " Typescript Syntax
+Plugin 'vim-airline/vim-airline'            " Status/Tabline
+Plugin 'vim-airline/vim-airline-themes'     " Status/Tabline Themes
+Plugin 'airblade/vim-gitgutter'             " Git signs '+,-,~'
+Plugin 'Raimondi/delimitMate'               " Auto close brackets
+Plugin 'ryanoasis/vim-devicons'             " Icons
+
 call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
@@ -58,7 +68,9 @@ set diffopt+=iwhite
 set textwidth=75
 set hidden
 "set complete+=k
+set encoding=utf8
 
+hi clear SignColumn "clear highlights on sign column
 
 "------------------------------------------------------------
 " Features {{{1
@@ -66,12 +78,12 @@ set hidden
 " Set 'nocompatible' to ward off unexpected things that your distro might
 " have made, as well as sanely reset options when re-sourcing .vimrc
 set nocompatible
- 
+
 " Attempt to determine the type of a file based on its name and possibly its
 " contents. Use this to allow intelligent auto-indenting for each filetype,
 " and for plugins that are filetype specific.
 filetype indent plugin on
- 
+
 " Enable syntax highlighting
 syntax on
 
@@ -90,7 +102,7 @@ command! MakeTags !ctags -R .
 " Must have options {{{1
 "
 " These are highly recommended options.
- 
+
 " Vim with default settings does not allow easy switching between multiple files
 " in the same editor window. Users can use multiple split windows or multiple
 " tab pages to edit multiple files, but it is still best to enable an option to
@@ -105,30 +117,30 @@ command! MakeTags !ctags -R .
 " try to quit without saving, and swap files will keep you safe if your computer
 " crashes.
 set hidden
- 
+
 " Note that not everyone likes working this way (with the hidden option).
 " Alternatives include using tabs or split windows instead of re-using the same
 " window as mentioned above, and/or either of the following options:
 " set confirm
 " set autowriteall
- 
+
 " Better command-line completion
 " Displays a menu of options
 set wildmenu
- 
+
 " Show partial commands in the last line of the screen
 set showcmd
- 
+
 " Highlight searches (use <C-L> to temporarily turn off highlighting; see the
 " mapping of <C-L> below)
 set hlsearch
- 
+
 " Modelines have historically been a source of security vulnerabilities. As
 " such, it may be a good idea to disable them and use the securemodelines
 " script, <http://www.vim.org/scripts/script.php?script_id=1876>.
 " set nomodeline
- 
- 
+
+
 "------------------------------------------------------------
 " Usability options {{{1
 "
@@ -136,85 +148,85 @@ set hlsearch
 " change Vim's behaviour in ways which deviate from the true Vi way, but
 " which are considered to add usability. Which, if any, of these options to
 " use is very much a personal preference, but they are harmless.
- 
+
 " Use case insensitive search, except when using capital letters
 set ignorecase
 set smartcase
- 
+
 " Allow backspacing over autoindent, line breaks and start of insert action
 set backspace=indent,eol,start
- 
+
 " When opening a new line and no filetype-specific indenting is enabled, keep
 " the same indent as the line you're currently on. Useful for READMEs, etc.
 set autoindent
- 
+
 " Stop certain movements from always going to the first character of a line.
 " While this behaviour deviates from that of Vi, it does what most users
 " coming from other editors would expect.
 set nostartofline
- 
+
 " Display the cursor position on the last line of the screen or in the status
 " line of a window
 set ruler
- 
+
 " Always display the status line, even if only one window is displayed
 set laststatus=2
- 
+
 " Instead of failing a command because of unsaved changes, instead raise a
 " dialogue asking if you wish to save changed files.
 set confirm
- 
+
 " Use visual bell instead of beeping when doing something wrong
 set visualbell
- 
+
 " And reset the terminal code for the visual bell. If visualbell is set, and
 " this line is also included, vim will neither flash nor beep. If visualbell
 " is unset, this does nothing.
 set t_vb=
- 
+
 " Enable use of the mouse for all modes
 set mouse=a
- 
+
 " Set the command window height to 2 lines, to avoid many cases of having to
 " "press <Enter> to continue"
 set cmdheight=2
- 
+
 " Display line numbers on the left
 set number
- 
+
 " Quickly time out on keycodes, but never time out on mappings
 set notimeout ttimeout ttimeoutlen=200
- 
+
 " Use <F11> to toggle between 'paste' and 'nopaste'
 set pastetoggle=<F11>
- 
- 
+
+
 "------------------------------------------------------------
 " Indentation options {{{1
 "
 " Indentation settings according to personal preference.
- 
+
 " Indentation settings for using 4 spaces instead of tabs.
 " Do not change 'tabstop' from its default value of 8 with this setup.
 set shiftwidth=4
 set softtabstop=4
 set expandtab
- 
+
 " Indentation settings for using hard tabs for indent. Display tabs as
 " four characters wide.
 "set shiftwidth=4
 "set tabstop=4
- 
- 
+
+
 "------------------------------------------------------------
 " Mappings {{{1
 "
 " Useful mappings
- 
+
 " Map Y to act like D and C, i.e. to yank until EOL, rather than act as yy,
 " which is the default
 map Y y$
- 
+
 " Map <C-L> (redraw screen) to also turn off search highlighting until the
 " next search
 nnoremap <C-L> :nohl<CR><C-L>
@@ -245,7 +257,8 @@ endfunction
 autocmd BufEnter * call s:syncTree()
 
 " Open on startup
-autocmd vimenter * NERDTree
+"autocmd vimenter * NERDTree
+let g:nerdtree_tabs_open_on_console_startup = 1
 
 " Show hidden files
 let NERDTreeShowHidden = 1
@@ -253,7 +266,7 @@ let NERDTreeShowHidden = 1
 
 "-----------------------------------------------------------
 " Vim Go
-
+"--------------------------------------------------------------
 " Syntax highlighting
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
@@ -282,8 +295,100 @@ au FileType go nmap <leader>s <Plug>(go-implements)
 au FileType go nmap <leader>i <Plug>(go-info)
 au FileType go nmap <leader>e <Plug>(go-rename)
 
+"--------------------------------------------------------------
+" Syntastic
+"--------------------------------------------------------------
+let g:syntastic_error_symbol = '✘'
+let g:syntastic_warning_symbol = "▲"
+augroup mySyntastic
+  au!
+  au FileType tex let b:syntastic_mode = "passive"
+augroup END
+
+"--------------------------------------------------------------
+" Easytags
+"--------------------------------------------------------------
+set tags=./tags;,~/.vimtags
+
+" Sensible defaults
+let g:easytags_events = ['BufReadPost', 'BufWritePost']
+let g:easytags_async = 1
+let g:easytags_dynamic_files = 2
+let g:easytags_resolve_links = 1
+let g:easytags_suppress_ctags_warning = 1
+
+" Open/close with '\tags'
+nmap <silent> <leader>tags :TagbarToggle<CR>
+
+" Open tagbar automatically whenever possible
+autocmd BufEnter * nested :call tagbar#autoopen(0)
+
+"--------------------------------------------------------------
+" Better Whitespace
+"--------------------------------------------------------------
+" Strip whitespace on save
+autocmd BufEnter * EnableStripWhitespaceOnSave
 
 "--------------------------------------------------------------
 " NeoComplete
-
+"--------------------------------------------------------------
 let g:neocomplete#enable_at_startup = 1
+
+"--------------------------------------------------------------
+" Airline
+"--------------------------------------------------------------
+"let g:airline_theme='solarized'
+let g:airline#extensions#tabline#enabled = 1
+
+" Don't show default status line
+set noshowmode
+
+"--------------------------------------------------------------
+" GitGutter
+"--------------------------------------------------------------
+" Only display 'hunks' if the diff is non-zero
+let g:airline#extensions#hunks#non_zero_only = 1
+
+" No mappings
+let g:gitgutter_map_keys = 0
+
+"--------------------------------------------------------------
+" DelimitMate
+"--------------------------------------------------------------
+let delimitMate_expand_cr = 1
+augroup mydelimitMate
+  au!
+  au FileType markdown let b:delimitMate_nesting_quotes = ["`"]
+  au FileType tex let b:delimitMate_quotes = ""
+  au FileType tex let b:delimitMate_matchpairs = "(:),[:],{:},`:'"
+  au FileType python let b:delimitMate_nesting_quotes = ['"', "'"]
+augroup END
+
+"--------------------------------------------------------------
+" Tabularize
+"--------------------------------------------------------------
+"let mapleader=','
+"if exists(":Tabularize")
+"  nmap <Leader>a= :Tabularize /=<CR>
+"  vmap <Leader>a= :Tabularize /=<CR>
+"  nmap <Leader>a: :Tabularize /:\zs<CR>
+"  vmap <Leader>a: :Tabularize /:\zs<CR>
+"endif
+
+inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
+
+function! s:align()
+  let p = '^\s*|\s.*\s|\s*$'
+  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
+    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
+    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
+    Tabularize/|/l1
+    normal! 0
+    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
+  endif
+endfunction
+
+"--------------------------------------------------------------
+" Devicons
+"--------------------------------------------------------------
+let g:airline_powerline_fonts = 1
