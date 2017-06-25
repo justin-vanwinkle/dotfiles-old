@@ -2,6 +2,7 @@ cask_args appdir: '/Applications'
 
 tap 'homebrew/bundle'
 tap 'puma/puma'
+tap 'caskroom/fonts'
 
 brew 'ack'
 brew 'coreutils'
@@ -29,6 +30,7 @@ brew 'wget'
 brew 'yarn'
 brew 'youtube-dl'
 
+cask 'font-hack-nerd-font'
 cask 'adium'
 cask 'atom'
 cask 'firefox'
