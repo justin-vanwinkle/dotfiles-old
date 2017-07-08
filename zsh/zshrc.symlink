@@ -55,4 +55,21 @@ fi
 # uninstall by removing these lines or running `tabtab uninstall sls`
 [[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
 
-
+# startup message
+echo -e "\n\t+--------------------------\e[91m\e[1mTHE MAN IN THE ARENA\e[0m-------------------------+"
+echo "\t| It is not the critic who counts;\t\t\t\t\t|"
+echo "\t| not the man who points out how the strong man stumbles,\t\t|"
+echo "\t| or where the doer of deeds could have done them better.\t\t|"
+echo "\t| The credit belongs to the man who is actually in the arena,\t\t|"
+echo "\t| whose face is marred by dust and sweat and blood;\t\t\t|"
+echo "\t| who strives valiantly; who errs, who comes short again and again,\t|"
+echo "\t| because there is no effort without error and shortcoming;\t\t|"
+echo "\t| but who does actually strive to do the deeds;\t\t\t\t|"
+echo "\t| who knows great enthusiasms, the great devotions;\t\t\t|"
+echo "\t| who spends himself in a worthy cause;\t\t\t\t\t|"
+echo "\t| who at the best knows in the end the triumph of high achievement,\t|"
+echo "\t| and who at the worst, if he fails,\t\t\t\t\t|"
+echo "\t| at least fails while daring greatly,\t\t\t\t\t|"
+echo "\t| so that his place shall never be with those cold and timid souls\t|"
+echo "\t| who neither know victory nor defeat.\t\t\t\t\t|"
+echo -e "\t+-------------------------------------------\e[95mTheodore Roosevelt\e[0m----------+"
