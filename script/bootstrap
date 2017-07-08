@@ -135,6 +135,11 @@ install_dotfiles () {
     dst="$HOME/.$(basename "${src%.*}")"
     link_file "$src" "$dst"
   done
+
+  mkdir -p ~/.config/nvim
+  ln -s ~/.vimrc ~/.config/nvim/init.vim
+  mkdir -p ~/.local/share/nvim
+  ln -s ~/.vim ~/.local/share/nvim/site
 }
 
 install_fonts () {
@@ -176,10 +181,16 @@ install_zsh () {
   fi
 }
 
+prepare_vim () {
+  vim +PluginInstall
+  vim +GoInstallBinaries
+}
+
 setup_gitconfig
 install_dotfiles
 install_zsh
 install_fonts
+prepare_vim
 
 # If we're on a Mac, let's install and setup homebrew.
 if [ "$(uname -s)" == "Darwin" ]
