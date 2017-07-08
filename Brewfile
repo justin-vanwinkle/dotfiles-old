@@ -15,9 +15,10 @@ brew 'lastpass-cli', args: ['with-pinentry']
 brew 'libcaca', args: ['with-imlib2']
 brew 'libgit2'
 brew 'openssl'
+brew 'neovim'
 brew 'node'
 brew 'readline'
-brew 'postgresql'
+brew 'pandoc'
 brew 'puma/puma/puma-dev'
 brew 'ruby-build'
 brew 'rbenv'

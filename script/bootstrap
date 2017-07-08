@@ -137,6 +137,12 @@ install_dotfiles () {
   done
 }
 
+install_fonts () {
+    git clone --single-branch https://github.com/powerline/fonts.git
+    ./fonts/install.sh
+    rm -rf fonts
+}
+
 install_zsh () {
   # Test to see if zshell is installed.  If it is:
   if [ -f /bin/zsh -o -f /usr/bin/zsh ]; then
@@ -173,6 +179,7 @@ install_zsh () {
 setup_gitconfig
 install_dotfiles
 install_zsh
+install_fonts
 
 # If we're on a Mac, let's install and setup homebrew.
 if [ "$(uname -s)" == "Darwin" ]
