@@ -37,7 +37,7 @@ Plugin 'tmux-plugins/vim-tmux'              " Syntax support for tmux files
 Plugin 'pangloss/vim-javascript'            " Syntax handler for JavaScript
 Plugin 'elzr/vim-json'                      " Syntax handling for JSON
 Plugin 'nblock/vim-dokuwiki'                " Syntax highlighting for Dokuwiki text files
-Plugin 'Raimondi/delimitMate'               " Automatically close quote, parens, brackets, etc.
+"Plugin 'Raimondi/delimitMate'               " Automatically close quote, parens, brackets, etc.
 Plugin 'tommcdo/vim-exchange'               " Exchange chunks of text
 Plugin 'kshenoy/vim-signature'              " Show marks in gutter
 Plugin 'tpope/vim-speeddating'              " Increment/decrement dates
@@ -60,8 +60,8 @@ let g:airline_powerline_fonts = 1
 " ========================================================================
 " Language Pack (Polyglot)
 " ========================================================================
-Plugin 'sheerun/vim-polyglot'               " Language pack
-let g:polyglot_disabled = ['markdown']
+"Plugin 'sheerun/vim-polyglot'               " Language pack
+"let g:polyglot_disabled = ['markdown']
 
 " ========================================================================
 " Deoplete
@@ -84,10 +84,10 @@ endif
 " ========================================================================
 " Better Whitespace
 " ========================================================================
-Plugin 'ntpeters/vim-better-whitespace'     "whitespace highlighter
+"Plugin 'ntpeters/vim-better-whitespace'     "whitespace highlighter
 
 " Strip whitespace on save
-autocmd BufEnter * EnableStripWhitespaceOnSave
+"autocmd BufEnter * EnableStripWhitespaceOnSave
 
 " ========================================================================
 " Tagbar
@@ -145,29 +145,29 @@ let g:hilinks_nobeval= 1
 " ========================================================================
 " Autoformat
 " ========================================================================
-Plugin 'Chiel92/vim-autoformat'
-
-" Auto-format certain file types
-function s:maybe_auto_format()
-    let autoformat_filetypes = ['pandoc']
-    if index(autoformat_filetypes, &filetype) >= 0
-        :Autoformat
-    endif
-endfunction
-command! MaybeAutoformat call s:maybe_auto_format()
-autocmd BufWrite * :MaybeAutoformat
-
-let g:formatdef_my_custom_cs = '"astyle --mode=cs --style=break --indent-namespaces"'
-let g:formatters_cs = ['my_custom_cs']
-
-" Trim extra whitespace on save -- workaround for astyle
-" From: http://stackoverflow.com/questions/7495932/how-can-i-trim-blank-lines-at-the-end-of-file-in-vim
-function TrimEndLines()
-    let save_cursor = getpos(".")
-    :silent! %s#\($\n\s*\)\+\%$##
-    call setpos('.', save_cursor)
-endfunction
-au BufWritePre *.cs call TrimEndLines()
+" Plugin 'Chiel92/vim-autoformat'
+"
+" " Auto-format certain file types
+" function s:maybe_auto_format()
+"     let autoformat_filetypes = ['pandoc']
+"     if index(autoformat_filetypes, &filetype) >= 0
+"         :Autoformat
+"     endif
+" endfunction
+" command! MaybeAutoformat call s:maybe_auto_format()
+" autocmd BufWrite * :MaybeAutoformat
+"
+" let g:formatdef_my_custom_cs = '"astyle --mode=cs --style=break --indent-namespaces"'
+" let g:formatters_cs = ['my_custom_cs']
+"
+" " Trim extra whitespace on save -- workaround for astyle
+" " From: http://stackoverflow.com/questions/7495932/how-can-i-trim-blank-lines-at-the-end-of-file-in-vim
+" function TrimEndLines()
+"     let save_cursor = getpos(".")
+"     :silent! %s#\($\n\s*\)\+\%$##
+"     call setpos('.', save_cursor)
+" endfunction
+" au BufWritePre *.cs call TrimEndLines()
 
 " ========================================================================
 " Easy Align
