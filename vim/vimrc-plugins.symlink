@@ -53,12 +53,6 @@ Plugin 'xolox/vim-misc'                     " Libs for plugins by xolox
 Plugin 'tpope/vim-dispatch'                 " Async capabilities
 
 " ========================================================================
-" Omnisharp
-" ========================================================================
-Plugin 'Omnisharp/omnisharp-vim'            " C#
-set completeopt-=preview
-
-" ========================================================================
 " Devicons
 " ========================================================================
 Plugin 'ryanoasis/vim-devicons'             " Icons

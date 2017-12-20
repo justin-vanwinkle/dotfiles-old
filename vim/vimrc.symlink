@@ -20,7 +20,7 @@ filetype plugin indent on
 set nowrap
 set title
 set diffopt+=iwhite
-set textwidth=75
+"set textwidth=75
 "set complete+=k
 set encoding=utf8
 set incsearch
