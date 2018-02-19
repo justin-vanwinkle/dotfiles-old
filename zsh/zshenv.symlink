@@ -9,3 +9,6 @@
 if [[ "$SHLVL" -eq 1 && ! -o LOGIN && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprofile"
 fi
+
+alias az="docker run --rm --privileged -it -e HOST_USER_ID=`id -u` -e HOST_GROUP_ID=`id -g` -v ${HOME}:/root -v /dev/shm:/dev/shm microsoft/azure-cli az "
+
