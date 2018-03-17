@@ -51,11 +51,13 @@ Plugin 'kovisoft/slimv'                     " Lisp/SLIME support
 Plugin 'tpope/vim-abolish'                  " Tools for smart replace, mangling/demangling, camelCasing, etc.
 Plugin 'xolox/vim-misc'                     " Libs for plugins by xolox
 Plugin 'tpope/vim-dispatch'                 " Async capabilities
+Plugin 'vimwiki/vimwiki'                    " Wiki
 
 " ========================================================================
 " Devicons
 " ========================================================================
 Plugin 'ryanoasis/vim-devicons'             " Icons
+set encoding=UTF-8
 let g:airline_powerline_fonts = 1
 
 " ========================================================================
@@ -84,10 +86,10 @@ endif
 " ========================================================================
 " Better Whitespace
 " ========================================================================
-"Plugin 'ntpeters/vim-better-whitespace'     "whitespace highlighter
+Plugin 'ntpeters/vim-better-whitespace'     "whitespace highlighter
 
 " Strip whitespace on save
-"autocmd BufEnter * EnableStripWhitespaceOnSave
+autocmd BufEnter * EnableStripWhitespaceOnSave
 
 " ========================================================================
 " Tagbar
