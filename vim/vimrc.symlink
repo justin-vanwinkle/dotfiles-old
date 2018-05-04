@@ -8,11 +8,12 @@ filetype off
 " Import plugins if available
 " ========================================================================
 if !empty(glob("~/.vimrc-plugins"))
-  source ~/.vimrc-plugins
+    source ~/.vimrc-plugins
 endif
 
 syntax on
-filetype plugin indent on
+filetype plugin on
+filetype indent on
 
 " ========================================================================
 "Editor Settings
@@ -27,13 +28,15 @@ set incsearch
 set history=1000
 set undolevels=1000
 set wildignore=*.swp,*.bak,*.pyc,*.class
-set list
-set listchars=tab:>.,trail:.,extends:#,nbsp:.   "show tabs
 set clipboard=unnamed
-autocmd filetype html,xml set listchars-=tab:>. "don't show tabs in these files
+
+" chars to show in files
+set nolist
+set listchars=trail:.,extends:#,eol:⏎,tab:␉·,trail:␠,nbsp:⎵   "show tabs
+autocmd FileType html,xml set listchars-=tab:␉ "don't show tabs in these files
 
 if !has('nvim')
-  set ttymouse=xterm2
+    set ttymouse=xterm2
 endif
 
 " Search into subfolders
@@ -140,6 +143,8 @@ map Y y$
 " next search
 nnoremap <C-L> :nohl<CR><C-L>
 
+"nnoremap <C-l> :set nolist<CR><C-l>
+
 
 " ========================================================================
 " Tasks
@@ -152,3 +157,7 @@ hi clear SignColumn "clear highlights on sign column
 " - Use g^] for ambiguous tags
 " - Use ^t to jump back up the tag stack
 command! MakeTags !ctags -R .
+
+augroup filetype
+    au! BufRead,BufNewFile *Makefile* set filetype=make nolist noexpandtab shiftwidth=8 softtabstop=0
+augroup END

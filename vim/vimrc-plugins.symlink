@@ -203,20 +203,22 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 " Plugin 'unblevable/quick-scope'
 " let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
-
 " ========================================================================
 " Gundo -- navigate undo tree
 " ========================================================================
 Plugin 'sjl/gundo.vim'
 nnoremap <Leader>gu :GundoToggle<CR>
 
-
-
 " ========================================================================
 " Xolox shell - supports fullscreen, among other things
 " ========================================================================
 Plugin 'xolox/vim-shell'
 let g:shell_fullscreen_always_on_top = 0
+
+" ========================================================================
+" OmniSharp
+" ========================================================================
+Plugin 'OmniSharp/omnisharp-vim'
 
 " ========================================================================
 " END VUNDLE PLUGINS
