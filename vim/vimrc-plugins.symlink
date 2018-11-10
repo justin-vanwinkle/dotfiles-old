@@ -89,7 +89,7 @@ endif
 Plugin 'ntpeters/vim-better-whitespace'     "whitespace highlighter
 
 " Strip whitespace on save
-autocmd BufEnter * EnableStripWhitespaceOnSave
+" autocmd BufEnter * EnableStripWhitespaceOnSave
 
 " ========================================================================
 " Tagbar
@@ -141,9 +141,9 @@ let g:hilinks_nobeval= 1
 " Syntastic
 " ========================================================================
 Plugin 'scrooloose/syntastic'
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
@@ -218,7 +218,7 @@ let g:shell_fullscreen_always_on_top = 0
 " ========================================================================
 " OmniSharp
 " ========================================================================
-Plugin 'OmniSharp/omnisharp-vim'
+"Plugin 'OmniSharp/omnisharp-vim'
 
 " ========================================================================
 " END VUNDLE PLUGINS

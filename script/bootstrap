@@ -143,15 +143,17 @@ install_dotfiles () {
 }
 
 install_fonts () {
-    git clone --single-branch https://github.com/powerline/fonts.git
-    ./fonts/install.sh
-    rm -rf fonts
+  # Powerline
+  git clone --single-branch https://github.com/powerline/fonts.git
+  ./fonts/install.sh
+  rm -rf fonts
 
-    sudo apt install -y --no-install-recommends unzip
-    wget https://github.com/ryanoasis/nerd-fonts/releases/download/v1.2.0/SourceCodePro.zip ~/SourceCodePro.zip
-    mkdir ~/.fonts
-    unzip SourceCodePro.zip -d ~/.fonts
-    fc-cache -f -v
+  # Source Code Pro Nerd Font
+  wget https://github.com/ryanoasis/nerd-fonts/releases/download/v1.2.0/SourceCodePro.zip ~/SourceCodePro.zip
+  mkdir ~/.fonts
+  unzip SourceCodePro.zip -d ~/.fonts
+  fc-cache -f -v
+  rm SourceCodePro.zip
 }
 
 install_zsh () {
@@ -187,17 +189,41 @@ install_zsh () {
   fi
 }
 
-prepare_vim () {
+install_neovim () {
+  sudo apt-get install software-properties-common
+  sudo apt-add-repository ppa:neovim-ppa/stable
+  sudo apt-get update
+  sudo apt-get install neovim
+  sudo update-alternatives --install /usr/bin/vi vi /usr/bin/nvim 60
+  sudo update-alternatives --config vi
+  sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 60
+  sudo update-alternatives --config vim
+  sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60
+  sudo update-alternatives --config editor
+
+  # install vundle and vim plugins
   git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
   vim +PluginInstall
   vim +GoInstallBinaries
 }
 
+apt_installs() {
+  sudo apt-get update
+  sudo apt-get install -y --no-install-recommends \
+    git-flow \
+    unzip \
+    python-dev \
+    python-pip \
+    python3-dev \
+    python3-pip
+}
+
+apt_installs #keep first for deps
 setup_gitconfig
 install_dotfiles
 install_zsh
 install_fonts
-prepare_vim
+install_neovim
 
 # If we're on a Mac, let's install and setup homebrew.
 if [ "$(uname -s)" == "Darwin" ]
