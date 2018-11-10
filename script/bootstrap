@@ -149,11 +149,11 @@ install_fonts () {
   rm -rf fonts
 
   # Source Code Pro Nerd Font
-  wget https://github.com/ryanoasis/nerd-fonts/releases/download/v1.2.0/SourceCodePro.zip ~/SourceCodePro.zip
+  wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.0.0/SourceCodePro.zip ~/SourceCodePro.zip
   mkdir ~/.fonts
   unzip SourceCodePro.zip -d ~/.fonts
   fc-cache -f -v
-  rm SourceCodePro.zip
+  rm -f SourceCodePro.zip
 }
 
 install_zsh () {

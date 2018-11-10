@@ -27,7 +27,8 @@ Plugin 'gmarik/Vundle.vim'                 " Vundle vundles Vundle
 " ========================================================================
 " Plugins that don't need configuring
 " ========================================================================
-Plugin 'PurpleGuitar/vim-croz-colorscheme'  " Craig's color scheme
+Plugin 'PurpleGuitar/vim-croz-scheme'       " Craig's colors
+Plugin 'liuchengxu/space-vim-dark'          " Spacevim colors
 Plugin 'tpope/vim-sensible'                 " Sensible defaults for vim settings
 Plugin 'tpope/vim-fugitive'                 " Git integration (:GStatus, :GPush, etc.)
 Plugin 'tpope/vim-unimpaired'               " Shortcuts, such as ]b (:bnext), ]q (:cnext), an ]e (exchange line)
@@ -57,8 +58,9 @@ Plugin 'vimwiki/vimwiki'                    " Wiki
 " Devicons
 " ========================================================================
 Plugin 'ryanoasis/vim-devicons'             " Icons
-set encoding=UTF-8
+set guifont=SauceCodePro\ Nerd\ Font:h10
 let g:airline_powerline_fonts = 1
+
 
 " ========================================================================
 " Language Pack (Polyglot)
@@ -68,10 +70,10 @@ Plugin 'sheerun/vim-polyglot'               " Language pack
 " ========================================================================
 " Deoplete
 " ========================================================================
-if has('nvim')
-    Plugin 'shougo/deoplete.nvim'
-    let g:deoplete#enable_at_startup = 1
-endif
+"if has('nvim')
+"    Plugin 'shougo/deoplete.nvim'
+"    let g:deoplete#enable_at_startup = 1
+"endif
 
 
 " ========================================================================
@@ -116,19 +118,19 @@ let g:easytags_suppress_ctags_warning = 1
 " ========================================================================
 " Golang support
 " ========================================================================
-Plugin 'fatih/vim-go'                      " Golang tools
-let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
-let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
-
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_types = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
-
+" Plugin 'fatih/vim-go'                      " Golang tools
+" let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+" let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+"
+" let g:go_highlight_functions = 1
+" let g:go_highlight_methods = 1
+" let g:go_highlight_fields = 1
+" let g:go_highlight_types = 1
+" let g:go_highlight_operators = 1
+" let g:go_highlight_build_constraints = 1
+"
 " Automatic import insertion
-let g:go_fmt_command = "goimports"
+" let g:go_fmt_command = \"goimports"
 
 
 " ========================================================================

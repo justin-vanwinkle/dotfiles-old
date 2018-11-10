@@ -161,3 +161,13 @@ command! MakeTags !ctags -R .
 augroup filetype
     au! BufRead,BufNewFile *Makefile* set filetype=make nolist noexpandtab shiftwidth=8 softtabstop=0
 augroup END
+
+
+" ========================================================================
+" Theme
+" ========================================================================
+" Load colorscheme if available (Must be called after vundle#end())
+silent! colorscheme space-vim-dark
+hi Comment guifg=#5C6370 ctermfg=59
+"set termguicolors
+"hi LineNr ctermbg=NONE guibg=NONE
