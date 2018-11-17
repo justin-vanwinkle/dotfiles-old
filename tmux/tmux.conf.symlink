@@ -4,13 +4,24 @@ bind r source-file ~/.tmux.conf \; display-message "tmux.conf reloaded"
 # remap prefix to 'C-a'
 unbind C-b
 set-option -g prefix C-a
-bind-key C-a send-prefix
+bind-key C-a send-prefix # C-a C-a sends a C-a
 
-# remap split panes to '-' and '|'
-unbind '"'
-unbind %
-bind - split-window -v
-bind | split-window -h
+# Don't delay waiting for Esc key
+set -sg escape-time 0
+
+# Allow yank into system clipboard
+bind C-y run-shell -b "tmux show-buffer | xclip -selection clipboard -i"
+# move x clipboard into tmux paste buffer
+bind C-p run-shell -b "xclip -o -selection clipboard | tmux load-buffer - ; tmux paste-buffer"
+
+# better splits with | and -
+bind-key | split-window -h -c "#{pane_current_path}"
+bind-key \ split-window -h -c "#{pane_current_path}" # | with no shift
+bind-key - split-window -v -c "#{pane_current_path}"
+bind-key c new-window -c "#{pane_current_path}"
+
+# Use vi-like key bindings
+set -g mode-keys vi
 
 # switch panes using Alt-arrow without prefix
 bind -n M-Left select-pane -L
@@ -18,17 +29,15 @@ bind -n M-Right select-pane -R
 bind -n M-Up select-pane -U
 bind -n M-Down select-pane -D
 
+# Start windows and panes at 1, not 0
+set -g base-index 1
+set -g pane-base-index 1
+
 # Enable mouse control (clickable windows, panes, resizable panes)
 set -g mouse on
 
 # don't rename windows automatically
 set-option -g allow-rename off
-
-# copy paste with system clipboard
-bind P paste-buffer
-bind-key -t vi-copy 'v' begin-selection
-bind-key -t vi-copy 'y' copy-selection
-bind-key -t vi-copy 'r' rectangle-toggle
 
 ######################
 ### DESIGN CHANGES ###
@@ -122,3 +131,8 @@ set -g message-bg colour166
 # Screen Saver
 set -g lock-after-time 300
 set -g lock-command "tty-clock -trSC 7"
+
+# Other options
+set -g history-limit 5000
+
+# vim: filetype=tmux

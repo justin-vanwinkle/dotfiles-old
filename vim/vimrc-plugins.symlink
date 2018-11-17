@@ -54,6 +54,8 @@ Plugin 'xolox/vim-misc'                     " Libs for plugins by xolox
 Plugin 'tpope/vim-dispatch'                 " Async capabilities
 Plugin 'vimwiki/vimwiki'                    " Wiki
 
+scriptencoding utf-8
+
 " ========================================================================
 " Devicons
 " ========================================================================
