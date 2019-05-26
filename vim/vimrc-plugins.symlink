@@ -27,7 +27,7 @@ Plugin 'gmarik/Vundle.vim'                 " Vundle vundles Vundle
 " ========================================================================
 " Plugins that don't need configuring
 " ========================================================================
-Plugin 'PurpleGuitar/vim-croz-scheme'       " Craig's colors
+" Plugin 'PurpleGuitar/vim-croz-scheme'       " Craig's colors
 Plugin 'liuchengxu/space-vim-dark'          " Spacevim colors
 Plugin 'tpope/vim-sensible'                 " Sensible defaults for vim settings
 Plugin 'tpope/vim-fugitive'                 " Git integration (:GStatus, :GPush, etc.)
