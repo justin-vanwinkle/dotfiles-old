@@ -45,19 +45,11 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
+export PATH="$PATH:/home/justin/workspace/flutter/bin"
+
 #Docker
 fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit -i
-
-# added by travis gem
-[ -f /Users/vanwinklej/.travis/travis.sh ] && source /Users/vanwinklej/.travis/travis.sh
-
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
 
 # startup message
 echo -e "\n\t+--------------------------\e[91m\e[1mTHE MAN IN THE ARENA\e[0m-------------------------+"

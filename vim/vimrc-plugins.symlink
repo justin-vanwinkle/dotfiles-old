@@ -30,29 +30,29 @@ Plugin 'gmarik/Vundle.vim'                 " Vundle vundles Vundle
 " Plugin 'PurpleGuitar/vim-croz-scheme'       " Craig's colors
 Plugin 'liuchengxu/space-vim-dark'          " Spacevim colors
 Plugin 'tpope/vim-sensible'                 " Sensible defaults for vim settings
-Plugin 'tpope/vim-fugitive'                 " Git integration (:GStatus, :GPush, etc.)
-Plugin 'tpope/vim-unimpaired'               " Shortcuts, such as ]b (:bnext), ]q (:cnext), an ]e (exchange line)
+" Plugin 'tpope/vim-fugitive'                 " Git integration (:GStatus, :GPush, etc.)
+" Plugin 'tpope/vim-unimpaired'               " Shortcuts, such as ]b (:bnext), ]q (:cnext), an ]e (exchange line)
 Plugin 'tomtom/tcomment_vim'                " Sophisticated commenting, e.g. Ctrl-// to comment
-Plugin 'guns/xterm-color-table.vim'         " Display a color chart of XTerm color codes
+" Plugin 'guns/xterm-color-table.vim'         " Display a color chart of XTerm color codes
 Plugin 'tmux-plugins/vim-tmux'              " Syntax support for tmux files
 Plugin 'pangloss/vim-javascript'            " Syntax handler for JavaScript
 Plugin 'elzr/vim-json'                      " Syntax handling for JSON
-Plugin 'nblock/vim-dokuwiki'                " Syntax highlighting for Dokuwiki text files
+" Plugin 'nblock/vim-dokuwiki'                " Syntax highlighting for Dokuwiki text files
 "Plugin 'Raimondi/delimitMate'               " Automatically close quote, parens, brackets, etc.
-Plugin 'tommcdo/vim-exchange'               " Exchange chunks of text
-Plugin 'kshenoy/vim-signature'              " Show marks in gutter
-Plugin 'tpope/vim-speeddating'              " Increment/decrement dates
+" Plugin 'tommcdo/vim-exchange'               " Exchange chunks of text
+" Plugin 'kshenoy/vim-signature'              " Show marks in gutter
+" Plugin 'tpope/vim-speeddating'              " Increment/decrement dates
 Plugin 'wzhliang/ttfzoom.vim'               " Zoom with Ctrl-mousewheel
-Plugin 'severin-lemaignan/vim-minimap'      " Minimap
-Plugin 'ynkdir/vim-vimlparser'              " VimL parser
-Plugin 'syngan/vim-vimlint'                 " Vim linter
+" Plugin 'severin-lemaignan/vim-minimap'      " Minimap
+" Plugin 'ynkdir/vim-vimlparser'              " VimL parser
+" Plugin 'syngan/vim-vimlint'                 " Vim linter
 Plugin 'ctrlpvim/ctrlp.vim'                 " Fast file finder
 Plugin 'chrisbra/csv.vim'                   " csv file support
-Plugin 'kovisoft/slimv'                     " Lisp/SLIME support
-Plugin 'tpope/vim-abolish'                  " Tools for smart replace, mangling/demangling, camelCasing, etc.
+" Plugin 'kovisoft/slimv'                     " Lisp/SLIME support
+" Plugin 'tpope/vim-abolish'                  " Tools for smart replace, mangling/demangling, camelCasing, etc.
 Plugin 'xolox/vim-misc'                     " Libs for plugins by xolox
-Plugin 'tpope/vim-dispatch'                 " Async capabilities
-Plugin 'vimwiki/vimwiki'                    " Wiki
+" Plugin 'tpope/vim-dispatch'                 " Async capabilities
+" Plugin 'vimwiki/vimwiki'                    " Wiki
 
 scriptencoding utf-8
 
