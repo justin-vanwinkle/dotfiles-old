@@ -2,7 +2,7 @@
 export ZSH=$HOME/.dotfiles
 
 # your project folder that we can `c [tab]` to
-export PROJECTS=~/Code
+export PROJECTS=~/workspace
 
 # Stash your environment variables in ~/.localrc. This means they'll stay out
 # of your main dotfiles repository (which may be public, like this one), but
@@ -50,6 +50,11 @@ export PATH="$PATH:/home/justin/workspace/flutter/bin"
 #Docker
 fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit -i
+
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+
 
 # startup message
 echo -e "\n\t+--------------------------\e[91m\e[1mTHE MAN IN THE ARENA\e[0m-------------------------+"
